@@ -1,11 +1,9 @@
-var gulp = require('gulp');  
-var sourcemaps = require('gulp-sourcemaps');  
-var ts = require('gulp-typescript');  
-var babel = require('gulp-babel');
+let gulp = require('gulp'),
+    sourcemaps = require('gulp-sourcemaps'),
+    ts = require('gulp-typescript'),
+    babel = require('gulp-babel');
 
-//var tsProject = ts.createProject('./src/tsconfig.json');
-
-gulp.task('script', function() {  
+gulp.task('script', () => {  
     return gulp.src('src/js/**/*.ts')
         .pipe(sourcemaps.init())
         .pipe(ts({
