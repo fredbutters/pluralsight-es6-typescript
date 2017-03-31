@@ -1,4 +1,4 @@
-let gulp = require('gulp'),
+var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     ts = require('gulp-typescript'),
     babel = require('gulp-babel');
