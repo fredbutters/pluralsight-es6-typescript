@@ -1,7 +1,8 @@
 var gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     ts = require('gulp-typescript'),
-    babel = require('gulp-babel');
+    babel = require('gulp-babel'),
+    livereload = require('gulp-livereload');
 
 gulp.task('script', () => {  
     return gulp.src('src/js/**/*.ts')
@@ -12,9 +13,11 @@ gulp.task('script', () => {
         }))
         .pipe(babel())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./dest'));
+        .pipe(gulp.dest('./dest'))
+        .pipe(livereload());
 });
 
 gulp.task('default', () => {
+    livereload.listen();
     gulp.watch('src/js/**/*.ts', ['script']);
 });
