@@ -2,12 +2,15 @@
   "name": "pluralsight-es6-typescript",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "test": "start"
+    "start": "node server.js"
   },
   "author": "Mark",
   "license": "ISC",
+  "dependencies": {
+    "hapi": "^8.8.0"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",

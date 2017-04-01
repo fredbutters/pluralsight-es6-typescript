@@ -13,7 +13,7 @@ gulp.task('script', () => {
         }))
         .pipe(babel())
         .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest('./dest'))
+        .pipe(gulp.dest('./Let'))
         .pipe(livereload());
 });
 
