@@ -5,7 +5,7 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload')
     exec = require('child_process').exec;
 
-gulp.task('script', ['server'], () => {  
+gulp.task('script', () => {  
     return gulp.src('src/js/**/*.ts')
         .pipe(sourcemaps.init())
         .pipe(ts({
@@ -24,7 +24,9 @@ gulp.task('server', (cb) => {
         cb(err);
     });
 });
-gulp.task('default', () => {
+
+gulp.task('watch', () => {
     livereload.listen();
     gulp.watch('src/js/**/*.ts', ['script']);
-});
+})
+gulp.task('default', ['server', 'watch']);
