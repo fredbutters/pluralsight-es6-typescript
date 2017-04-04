@@ -4,15 +4,13 @@ var gulp = require('gulp'),
     babel = require('gulp-babel'),
     livereload = require('gulp-livereload')
     exec = require('child_process').exec,
-    open = require('open');
+    open = require('open'),
+    tsProject = ts.createProject('./tsconfig.json');
 
 gulp.task('script', () => {  
     return gulp.src('src/js/**/*.ts')
         .pipe(sourcemaps.init())
-        .pipe(ts({
-            noImplicitAny: true,
-            out: 'index.js'
-        }))
+        .pipe(tsProject())
         .pipe(babel())
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest('./Let'))
@@ -20,7 +18,6 @@ gulp.task('script', () => {
 });
 
 gulp.task('server', (cb) => {
-    open('http://localhost:3000'); 
     exec('node server.js', (err, stdout, stderr) => {
         console.log(err);
         cb(err);
@@ -28,7 +25,6 @@ gulp.task('server', (cb) => {
 });
 
 gulp.task('browser', () => {
-    console.log('browse');
     open('http://localhost:3000');    
 });
 

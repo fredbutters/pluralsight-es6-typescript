@@ -36,7 +36,6 @@ class Contact {
 }
 const alice = new Contact({ name: 'Alice', phone: '555-1234' });
 
-
 //****************************
 // Inheritance */
 class Employee extends Contact {
@@ -50,6 +49,6 @@ class Employee extends Contact {
     }
 }
 
-const pat = new Employee({ name: 'Pat', phone: '555-4646' });
-pat.hireDate = new Date('2015-01-01');
+const pat = new Employee({ name: 'Pat', phone: '555-4646', employeeID: '1234',hireDate : new Date('2015-01-01') });
+// pat.hireDate = new Date('2015-01-01');
 console.log(pat instanceof Contact); // => true
