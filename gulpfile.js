@@ -3,7 +3,8 @@ var gulp = require('gulp'),
     ts = require('gulp-typescript'),
     babel = require('gulp-babel'),
     livereload = require('gulp-livereload')
-    exec = require('child_process').exec;
+    exec = require('child_process').exec,
+    open = require('open');
 
 gulp.task('script', () => {  
     return gulp.src('src/js/**/*.ts')
@@ -19,10 +20,16 @@ gulp.task('script', () => {
 });
 
 gulp.task('server', (cb) => {
+    open('http://localhost:3000'); 
     exec('node server.js', (err, stdout, stderr) => {
         console.log(err);
         cb(err);
     });
+});
+
+gulp.task('browser', () => {
+    console.log('browse');
+    open('http://localhost:3000');    
 });
 
 gulp.task('watch', () => {
